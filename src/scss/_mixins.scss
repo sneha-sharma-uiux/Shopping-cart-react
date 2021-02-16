@@ -1,0 +1,63 @@
+/* Bootstrap 4 media query -------------------------------*/
+@mixin viewport($point) {
+  @if $point==small {
+    // Small devices (landscape phones, 34em and up) 544px
+    @media (max-width: 480px) {
+      @content;
+    }
+  } @else if $point==medium {
+    // Medium devices (tablets, 48em and up) 768px
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $point==large {
+    // Large devices (desktops, 62em and up) 992px npm install --save-dev gulp-sprite
+    @media (max-width: 992px) {
+      @content;
+    }
+  } @else if $point==xlarge {
+    // Extra large devices (large desktops, 75em and up) 1200px
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+
+  /* Device specific media query
+  -------------------------------*/
+  @else if $point==mobileOnly {
+    // Mininum 320px and maximum 768px
+    @media (min-width: 320px) and (max-width: 480px) {
+      @content;
+    }
+  } @else if $point==mobileLandscape {
+    // Mininum 320px and orientation landscape
+    @media (min-width: 320px) and (orientation: landscape) {
+      @content;
+    }
+  } @else if $point==ipadOnly {
+    // Mininum 768px and maximum 1024px ipad portrait and landscape only
+    @media (min-width: 480px) and (max-width: 768px) {
+      @content;
+    }
+  } @else if $point==ipadPortrait {
+    // Mininum 768px and ipad orientation portrait
+    @media (min-width: 480px) and (orientation: portrait) {
+      @content;
+    }
+  } @else if $point==ipadLandscape {
+    // Mininum 768px and ipad orientation landscape
+    @media (min-width: 768px) and (orientation: landscape) {
+      @content;
+    }
+  } @else if $point==desktop {
+    // Mininum 1024px
+    @media (min-width: 769px) {
+      @content;
+    }
+  }
+}
+
+@function calculate-rem($size) {
+  $rem-size: $size / 10px;
+  @return #{$rem-size}rem;
+}

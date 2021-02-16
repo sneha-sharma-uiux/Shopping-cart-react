@@ -1,0 +1,48 @@
+.title {
+  margin: 10px;
+  &-primary {
+    font-size: calculate-rem(30px);
+  }
+  &-secondary {
+    font-size: calculate-rem(16px);
+  }
+}
+
+.close {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
+  &:before,
+  &:after {
+    position: absolute;
+    left: 15px;
+    content: " ";
+    height: 25px;
+    width: 2px;
+    background-color: map-get($theme-colors, "white");
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  &--remove {
+    background-image: url(/static/remove.png);
+  }
+  &--add {
+    background-image: url(/static/add.png);
+  }
+}

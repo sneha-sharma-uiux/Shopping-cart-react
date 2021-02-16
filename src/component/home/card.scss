@@ -1,0 +1,40 @@
+.Card {
+  width: 100%;
+  display: flex;
+  z-index: 10;
+  align-items: center;
+  &--Img {
+    width: 33%;
+    margin: 0 5%;
+  }
+  &-info {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    font-size: calculate-rem(16px);
+
+    &--Text {
+      text-align: center;
+      margin: 5px;
+      font-size: calculate-rem(15px);
+    }
+    &--btn {
+      padding: 5px 10px;
+      background-color: map-get($theme-colors, "primary");
+      border: none;
+      border-radius: 5px;
+      color: map-get($theme-colors, "white");
+      cursor: pointer;
+      &:hover {
+        background-color: map-get($theme-colors, "primary_hover");
+      }
+    }
+  }
+  &--revs {
+    flex-direction: row-reverse;
+  }
+}

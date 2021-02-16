@@ -1,0 +1,32 @@
+.login {
+  max-width: 1024px;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  min-height: 300px;
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin: 30px;
+  }
+  &-form {
+    flex-grow: 1;
+    max-width: 350px;
+    margin: 30px 40px;
+    &--submit {
+      display: inline-block;
+      border: none;
+      width: 100%;
+      padding: 10px;
+      margin: 20px 0;
+      text-decoration: none;
+      background: map-get($theme-colors, "primary");
+      color: map-get($theme-colors, "white");
+      cursor: pointer;
+      text-align: center;
+      font-size: calculate-rem(16px);
+    }
+  }
+}

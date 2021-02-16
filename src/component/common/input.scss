@@ -1,0 +1,71 @@
+.inputWraper {
+  margin-bottom: 20px;
+  .input {
+    position: relative;
+    &--error {
+      font-weight: 600;
+      color: map-get($theme-colors, "error");
+      font-size: calculate-rem(14px);
+    }
+    &--helptext {
+      font-size: calculate-rem(14px);
+      display: block;
+    }
+    &-label {
+      position: absolute;
+      top: 5px;
+      left: 0;
+      font-size: calculate-rem(16px);
+      color: map-get($input-colors, "secondary");
+      font-weight: 500;
+      transform-origin: 0 0;
+      transition: all 0.2s ease;
+    }
+    &-border {
+      position: absolute;
+      bottom: -17px;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background: map-get($input-colors, "primary");
+      transform: scaleX(0);
+      transform-origin: 0 0;
+      transition: all 0.15s ease;
+    }
+    input {
+      -webkit-appearance: none;
+      width: 100%;
+      border: 0;
+      font-family: inherit;
+      padding: 12px 0;
+      height: 48px;
+      font-size: calculate-rem(16px);
+      font-weight: 500;
+      border-bottom: 2px solid map-get($input-colors, "border");
+      background: none;
+      border-radius: 0;
+      color: map-get($input-colors, "black");
+      transition: all 0.15s ease;
+      &:hover {
+        background: rgba(map-get($input-colors, "background"), 0.03);
+      }
+      &:not(:placeholder-shown) {
+        + span {
+          color: map-get($input-colors, "black");
+          transform: translateY(-26px) scale(0.75);
+        }
+      }
+      &:focus {
+        background: none;
+        outline: none;
+        + span {
+          color: map-get($input-colors, "primary");
+          transform: translateY(-26px) scale(0.75);
+          + .input-border {
+            transform: scaleX(1);
+          }
+        }
+      }
+    }
+  }
+}

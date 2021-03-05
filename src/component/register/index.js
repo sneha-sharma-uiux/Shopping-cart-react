@@ -7,7 +7,7 @@ export default () => (
     <div className="register-info">
       <h2 className="title title-primary">{i18next.t("SignUp")}</h2>
       <p className="title title-secondary">
-        {i18next.t("We do not share your personal details with anyone")}
+        {i18next.t("PersonalDetailsMessage")}
       </p>
     </div>
     <div className="register-form">

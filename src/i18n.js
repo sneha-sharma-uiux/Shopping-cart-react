@@ -21,28 +21,21 @@ i18n.use(LanguageDetector).init({
         FirstName: "FirstName",
         LastName: "LastName",
         ConfirmPassword: "ConfirmPassword",
-        "Password must have a number and alphabet only":
-          "Password must have a number and alphabet only",
-        "Invalid email address": "Invalid email address",
-        "Minimum length 6 characters": "Minimum length 6 characters",
-        "Must be 15 characters or less": "Must be 15 characters or less",
-        "Must have a number and alphabet only":
-          "Must have a number and alphabet only",
-        "Confirm password needs to be same as password":
-          "Confirm password needs to be same as password",
-        "Get access to your Order, Wishlist and Recommendations":
-          "Get access to your Order, Wishlist and Recommendations",
-        "We do not share your personal details with anyone":
+        PasswordRule1: "Password must have a number and alphabet only",
+        InvalidEmail: "Invalid email address",
+        MinimumLength: "Minimum length 6 characters",
+        Minlength15: "Must be 15 characters or less",
+        PasswordRule2: "Must have a number and alphabet only",
+        ConfirmPasswordRule1: "Confirm password needs to be same as password",
+        GetAccessMsg: "Get access to your Order, Wishlist and Recommendations",
+        PersonalDetailsMessage:
           "We do not share your personal details with anyone",
-        "Copyright @ 2011-2019 Sabka Bazaar Grocery Supplies Pvt Ltd":
-          "Copyright @ 2011-2019 Sabka Bazaar Grocery Supplies Pvt Ltd",
-        "No Item in your cart": "No Item in your cart",
-        "your favourite items are just click away":
-          "your favourite items are just click away",
-        "Promo can be applied on payment page":
-          "Promo can be applied on payment page",
-        "Proceed to Checkout": "Proceed to Checkout",
-        "Start Shopping": "Start Shopping"
+        Footer: "Copyright @ 2011-2019 Sabka Bazaar Grocery Supplies Pvt Ltd",
+        CartNoItem: "No Item in your cart",
+        FavItemsMessage: "your favourite items are just click away",
+        PromoMessage: "Promo can be applied on payment page",
+        CheckOut: "Proceed to Checkout",
+        Shopping: "Start Shopping"
       }
     }
   },

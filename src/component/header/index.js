@@ -4,7 +4,7 @@ import classnames from "classnames";
 import i18next from "i18next";
 import { bindActionCreators } from "redux";
 import { Link } from "react-router-dom";
-import { toggleCart } from "./../../reducers";
+import { toggleCart } from "./../../store/actions";
 
 const Header = props => {
   const [hambergur, setHambergur] = useState(false);

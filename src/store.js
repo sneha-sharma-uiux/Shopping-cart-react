@@ -3,7 +3,9 @@ import { connectRouter, routerMiddleware } from "connected-react-router";
 import { reducer as formReducer } from "redux-form";
 import thunk from "redux-thunk";
 import { createBrowserHistory } from "history";
-import reducers from "./reducers";
+import apireducers from "./store/reducers/api";
+import cartreducers from "./store/reducers/cart";
+import filterreducers from "./store/reducers/filterProduct";
 
 export const history = createBrowserHistory();
 
@@ -24,7 +26,9 @@ const composedEnhancers = compose(
   ...enhancers
 );
 const rootReducer = combineReducers({
-  ...reducers,
+  api: apireducers,
+  cart: cartreducers,
+  filter: filterreducers,
   form: formReducer,
   router: connectRouter(history)
 });

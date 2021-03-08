@@ -1,0 +1,8 @@
+export const GET_REQUESTED = "GET_CALL_REQUESTED";
+export const SET_CATEGORIES = "SET_CATEGORIES";
+export const SET_PRODUCTS = "SET_PRODUCTS";
+export const ADD_TO_CART = "ADD_TO_CART";
+export const TOTAL_CART_ITEM = "TOTAL_CART_ITEM";
+export const TOGGLE_CART = "SHOW_CART";
+export const CART_TOTAL = "CART_TOTAL";
+export const SET_PRODUCT_FILTER = "SET_PRODUCT_FILTER";

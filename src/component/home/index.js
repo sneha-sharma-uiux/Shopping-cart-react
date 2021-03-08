@@ -1,8 +1,10 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { connect } from "react-redux";
+import { push } from "connected-react-router";
 import Offer from "./offer";
-import Card from "./card";
-import { setCategories } from "./../../reducers";
+import { setCategories, setFilterId } from "./../../store/actions";
+
+const Card = React.lazy(() => import("./card"));
 
 class Products extends React.Component {
   componentDidMount() {
@@ -18,15 +20,21 @@ class Products extends React.Component {
           .map(card =>
             card.enabled ? (
               <React.Fragment key={card.id}>
-                <Card
-                  url={card.imageUrl}
-                  heading={card.name}
-                  info={card.description}
-                  btnLable={"Explore-" + card.key}
-                  rowRev={card.order % 2}
-                  cardId={card.id}
-                />
-                <div className="home-shadowSaprater"></div>
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Card
+                    url={card.imageUrl}
+                    heading={card.name}
+                    info={card.description}
+                    btnLable={"Explore-" + card.key}
+                    rowRev={card.order % 2}
+                    cardId={card.id}
+                    onClick={() => {
+                      this.props.changePage();
+                      this.props.setfilter(card.id);
+                    }}
+                  />
+                  <div className="home-shadowSaprater"></div>
+                </Suspense>
               </React.Fragment>
             ) : null
           )}
@@ -42,7 +50,9 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    getCategories: () => dispatch(setCategories())
+    getCategories: () => dispatch(setCategories()),
+    setfilter: id => dispatch(setFilterId(id)),
+    changePage: () => dispatch(push("/product"))
   };
 };
 export default connect(

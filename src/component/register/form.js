@@ -19,27 +19,25 @@ const validate = values => {
   if (!values.email) {
     errors.email = i18next.t("Required");
   } else if (!emailRegExp.test(values.email)) {
-    errors.email = i18next.t("Invalid email address");
+    errors.email = i18next.t("InvalidEmail");
   }
 
   if (!values.password) {
     errors.password = i18next.t("Required");
   } else if (values.password.length < 6) {
-    errors.password = i18next.t("Minimum length 6 characters");
+    errors.password = i18next.t("MinimumLength");
   } else if (!passwordRegExp.test(values.password)) {
-    errors.password = i18next.t("Must have a number and alphabet only");
+    errors.password = i18next.t("PasswordRule2");
   }
 
   if (!values.confirmPassword) {
     errors.confirmPassword = i18next.t("Required");
   } else if (values.confirmPassword.length < 6) {
-    errors.confirmPassword = i18next.t("Minimum length 6 characters");
+    errors.confirmPassword = i18next.t("MinimumLength");
   } else if (!passwordRegExp.test(values.confirmPassword)) {
-    errors.confirmPassword = i18next.t("Must have a number and alphabet only");
+    errors.confirmPassword = i18next.t("PasswordRule2");
   } else if (values.confirmPassword !== values.password) {
-    errors.confirmPassword = i18next.t(
-      "Confirm password needs to be same as password"
-    );
+    errors.confirmPassword = i18next.t("ConfirmPasswordRule1");
   }
   return errors;
 };
@@ -82,7 +80,7 @@ class Register extends React.Component {
           type="password"
           component={inputField}
           label={i18next.t("ConfirmPassword")}
-          helpText={i18next.t("Password must have a number and alphabet only")}
+          helpText={i18next.t("PasswordRule1")}
         />
         <button
           className="register-form--submit"

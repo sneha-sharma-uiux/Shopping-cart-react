@@ -12,9 +12,9 @@ class Cart extends React.Component {
     return (
       <div className="cart">
         <section className="cart-myCart">
-          <h3 className="cart-myCart--head">
+          <h1 className="cart-myCart--head">
             My Cart<span className="cart-myCart--sub">( {totalItem} item)</span>
-          </h3>
+          </h1>
           <button
             className="close"
             aria-label="close cart"
@@ -28,7 +28,7 @@ class Cart extends React.Component {
           </div>
         ) : (
           <section className="cart-noItem">
-            <h4 className="cart-noItem--header">{i18next.t("CartNoItem")}</h4>
+            <h1 className="cart-noItem--header">{i18next.t("CartNoItem")}</h1>
             <p className="cart-noItem--sub">{i18next.t("FavItemsMessage")}</p>
           </section>
         )}

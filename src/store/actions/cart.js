@@ -1,42 +1,4 @@
-export const ADD_TO_CART = "cart/ADD_TO_CART";
-export const TOTAL_CART_ITEM = "cart/TOTAL_CART_ITEM";
-export const TOGGLE_CART = "cart/SHOW_CART";
-export const CART_TOTAL = "cart/CART_TOTAL";
-
-const initialState = {
-  cartData: [],
-  totalItem: 0,
-  cartShow: false,
-  cartTotal: 0
-};
-
-export default (state = initialState, action) => {
-  switch (action.type) {
-    case ADD_TO_CART:
-      return {
-        ...state,
-        cartData: action.payload
-      };
-    case TOTAL_CART_ITEM:
-      return {
-        ...state,
-        totalItem: action.payload
-      };
-    case TOGGLE_CART:
-      return {
-        ...state,
-        cartShow: action.payload
-      };
-    case CART_TOTAL:
-      return {
-        ...state,
-        cartTotal: action.payload
-      };
-
-    default:
-      return state;
-  }
-};
+import * as actionTypes from "../actions/actionTypes";
 
 export const addToCart = id => {
   return (dispatch, getState) => {
@@ -51,11 +13,11 @@ export const addToCart = id => {
     const total = storeCart.reduce((a, c) => a + c.qty, 0);
 
     dispatch({
-      type: ADD_TO_CART,
+      type: actionTypes.ADD_TO_CART,
       payload: storeCart
     });
     dispatch({
-      type: TOTAL_CART_ITEM,
+      type: actionTypes.TOTAL_CART_ITEM,
       payload: total
     });
     dispatch(cartTotal());
@@ -70,11 +32,11 @@ export const removeFromCart = id => {
     }
     const total = storeCart.reduce((a, c) => a + c.qty, 0);
     dispatch({
-      type: ADD_TO_CART,
+      type: actionTypes.ADD_TO_CART,
       payload: storeCart.filter(e => e.qty !== 0)
     });
     dispatch({
-      type: TOTAL_CART_ITEM,
+      type: actionTypes.TOTAL_CART_ITEM,
       payload: total
     });
     dispatch(cartTotal());
@@ -84,7 +46,7 @@ export const removeFromCart = id => {
 export const toggleCart = () => {
   return (dispatch, getState) => {
     dispatch({
-      type: TOGGLE_CART,
+      type: actionTypes.TOGGLE_CART,
       payload: !getState().cart.cartShow
     });
   };
@@ -94,7 +56,7 @@ export const cartTotal = () => {
     let storeCart = getState().cart.cartData;
     const totalVal = storeCart.reduce((a, c) => a + c.item.price * c.qty, 0);
     dispatch({
-      type: CART_TOTAL,
+      type: actionTypes.CART_TOTAL,
       payload: totalVal
     });
   };
@@ -103,15 +65,15 @@ export const cartTotal = () => {
 export const checkout = id => {
   return (dispatch, getState) => {
     dispatch({
-      type: ADD_TO_CART,
+      type: actionTypes.ADD_TO_CART,
       payload: []
     });
     dispatch({
-      type: TOTAL_CART_ITEM,
+      type: actionTypes.TOTAL_CART_ITEM,
       payload: 0
     });
     dispatch({
-      type: CART_TOTAL,
+      type: actionTypes.CART_TOTAL,
       payload: 0
     });
     dispatch(toggleCart());
